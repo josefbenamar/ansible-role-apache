@@ -1,11 +1,15 @@
 ---
 - name: Install Apache Webserver
   yum: pkg=httpd state=latest
-  
+  become: yes
+  become_user: cloud_user
+
 - name: Place the index file at project root
   copy: src=index.html dest={{ project_root }}/index.html owner=cloud_user group=cloud_user mode=0644
 
 - name: Enable Apache on system reboot
   service: name=httpd enabled=yes
   notify: restart apache
+  become: yes
+  become_user: cloud_user
 
