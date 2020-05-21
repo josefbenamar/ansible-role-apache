@@ -1,9 +1,9 @@
 ---
 - name: Update apt
-  apt: update_cache=yes
+  yum: update_cache=yes
 
 - name: Install Apache
-  apt: name=apache2 state=latest
+  yum: name=apache2 state=latest
 
 - name: Create custom document root
   file: path={{ doc_root }} state=directory owner=cloud_user group=cloud_user
