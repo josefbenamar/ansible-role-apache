@@ -6,10 +6,10 @@
   apt: name=apache2 state=latest
 
 - name: Create custom document root
-  file: path={{ doc_root }} state=directory owner=www-data group=www-data
+  file: path={{ doc_root }} state=directory owner=cloud_user group=cloud_user
 
 - name: Set up HTML file
-  copy: src=index.html dest={{ doc_root }}/index.html owner=www-data group=www-data mode=0644
+  copy: src=index.html dest={{ doc_root }}/index.html owner=cloud_user group=cloud_user mode=0644
 
 - name: Set up Apache virtual host file
   template: src=vhost.tpl dest=/etc/apache2/sites-available/000-default.conf
