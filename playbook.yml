@@ -1,4 +1,4 @@
 - name: httpd
   hosts: all
   roles:
-    - { role: apache, become: yes, remote_user: root }
+    - { role: apache, become: yes, become_user: root }
