@@ -1,3 +1,4 @@
 - name: httpd
+  hosts: all
   roles:
     - { role: apache, become: yes }
