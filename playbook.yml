@@ -1,4 +1,4 @@
 - name: httpd
   hosts: all
   roles:
-    - { role: apache, become: yes }
+    - { role: apache, become: yes, remote_user: cloud_user }
